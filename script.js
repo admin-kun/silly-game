@@ -56,6 +56,7 @@ function updateInventory() {
 async function checkAnswer(answer) {
   // Placeholder backend URL — update after deploying backend on Vercel!
   const backendUrl = "https://silly-game-git-main-admin-kuns-projects.vercel.app/api/check";
+  console.log('Sending to backend:', { riddle: riddles[currentRiddleIndex].id, answer });
 
   try {
     const response = await fetch(backendUrl, {
