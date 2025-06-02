@@ -54,7 +54,7 @@ function updateInventory() {
 }
 
 async function checkAnswer(answer) {
-  const backendUrl = "silly-game-dv2f3zkp4-admin-kuns-projects.vercel.app/api/check"; // update this!
+  const backendUrl = "silly-game-p46xvk8v7-admin-kuns-projects.vercel.app/api/check"; // update this!
 
   console.log('Sending answer:', { riddle: riddles[currentRiddleIndex].id, answer });
 
