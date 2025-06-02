@@ -55,7 +55,7 @@ function updateInventory() {
 
 async function checkAnswer(answer) {
   // Placeholder backend URL — update after deploying backend on Vercel!
-  const backendUrl = "silly-game-1s5vefjo5-admin-kuns-projects.vercel.app/api/check";
+  const backendUrl = "https://silly-game-1s5vefjo5-admin-kuns-projects.vercel.app/api/check";
 
   try {
     const response = await fetch(backendUrl, {
