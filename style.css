@@ -1,0 +1,59 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  padding: 10px;
+  max-width: 600px;
+  margin: auto;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+#riddle-text {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+
+#answer-input {
+  width: 100%;
+  padding: 10px;
+  font-size: 1em;
+}
+
+#submit-btn {
+  margin-top: 10px;
+  padding: 10px;
+  width: 100%;
+  font-size: 1em;
+  cursor: pointer;
+}
+
+#result {
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+#inventory {
+  border: 1px solid #ccc;
+  padding: 10px;
+  min-height: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.reward-link {
+  background: #007bff;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-size: 0.9em;
+  white-space: nowrap;
+}
