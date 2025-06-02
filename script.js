@@ -54,9 +54,9 @@ function updateInventory() {
 }
 
 async function checkAnswer(answer) {
-  // Placeholder backend URL — update after deploying backend on Vercel!
-  const backendUrl = "silly-game-cnshvqt8k-admin-kuns-projects.vercel.app/api/check";
-  console.log('Sending to backend:', { riddle: riddles[currentRiddleIndex].id, answer });
+  const backendUrl = "silly-game-dv2f3zkp4-admin-kuns-projects.vercel.app/api/check"; // update this!
+
+  console.log('Sending answer:', { riddle: riddles[currentRiddleIndex].id, answer });
 
   try {
     const response = await fetch(backendUrl, {
@@ -64,9 +64,11 @@ async function checkAnswer(answer) {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ riddle: riddles[currentRiddleIndex].id, answer })
     });
+
     if (!response.ok) throw new Error("Server error");
 
     const data = await response.json();
+    console.log('Response from backend:', data);
     return data.correct;
   } catch (err) {
     console.error(err);
