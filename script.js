@@ -53,39 +53,19 @@ function updateInventory() {
   });
 }
 
-async function checkAnswer(answer) {
-  const backendUrl = "silly-game-git-main-admin-kuns-projects.vercel.app/api/check"; // update this!
-
-  console.log('Sending answer:', { riddle: riddles[currentRiddleIndex].id, answer });
-
-  try {
-    const response = await fetch(backendUrl, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ riddle: riddles[currentRiddleIndex].id, answer })
-    });
-
-    if (!response.ok) throw new Error("Server error");
-
-    const data = await response.json();
-    console.log('Response from backend:', data);
-    return data.correct;
-  } catch (err) {
-    console.error(err);
-    resultEl.textContent = "Error checking answer. Try again later.";
-    return false;
-  }
+function checkAnswer(answer) {
+  const correctAnswer = riddles[currentRiddleIndex].answer.toLowerCase();
+  return answer.toLowerCase() === correctAnswer;
 }
 
-submitBtn.addEventListener("click", async () => {
+submitBtn.addEventListener("click", () => {
   const userAnswer = answerInputEl.value.trim();
   if (!userAnswer) {
     resultEl.textContent = "Please enter an answer.";
     return;
   }
 
-  const correct = await checkAnswer(userAnswer);
-  if (correct) {
+  if (checkAnswer(userAnswer)) {
     resultEl.textContent = "Correct! 🎉";
     const reward = riddles[currentRiddleIndex].reward;
     if (reward) {
